@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương trình đào tạo - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="chat-widget.js"></script>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-light: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --transition-speed: 0.3s;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3') center/cover;
+            opacity: 0.1;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 0.1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .feature-card {
+            background: var(--text-light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform var(--transition-speed);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            #hero {
+                height: 50vh !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html" class="active">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html">Thông tin liên hệ</a></li>
+                <li><a href="#" class="support-btn"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" style="height: 60vh;">
+            <div class="hero-content">
+                <h1>Chương trình đào tạo</h1>
+                <p>Khám phá tương lai với các chương trình đào tạo chất lượng cao</p>
+            </div>
+        </section>
+
+        <section id="programs" style="padding: 5rem 5%; background-color: #fff;">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Công nghệ thông tin</h3>
+                    <p>Chương trình đào tạo hiện đại với các chuyên ngành:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Kỹ thuật phần mềm</li>
+                        <li>An toàn thông tin</li>
+                        <li>Trí tuệ nhân tạo</li>
+                        <li>Khoa học dữ liệu</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Quản trị kinh doanh số</h3>
+                    <p>Đào tạo chuyên sâu về:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Digital Marketing</li>
+                        <li>E-commerce</li>
+                        <li>Business Analytics</li>
+                        <li>Quản trị dự án số</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Kỹ thuật số</h3>
+                    <p>Chương trình tiên tiến về:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>IoT & Robotics</li>
+                        <li>Tự động hóa</li>
+                        <li>Điện tử thông minh</li>
+                        <li>Công nghệ số</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-language"></i>
+                    <h3>Ngôn ngữ học</h3>
+                    <p>Đào tạo các ngôn ngữ:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Tiếng Hàn Quốc</li>
+                        <li>Tiếng Nhật</li>
+                        <li>Tiếng Trung Quốc</li>
+                        <li>Tiếng Anh thương mại</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Tài chính - Ngân hàng</h3>
+                    <p>Chương trình đào tạo về:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Tài chính doanh nghiệp</li>
+                        <li>Ngân hàng số</li>
+                        <li>Đầu tư chứng khoán</li>
+                        <li>Fintech</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>Thiết kế sáng tạo</h3>
+                    <p>Các chuyên ngành:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Thiết kế đồ họa</li>
+                        <li>UI/UX Design</li>
+                        <li>Motion Graphics</li>
+                        <li>Digital Art</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem chi tiết</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 5%; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 4rem; color: var(--secondary-color); font-size: 2.5rem; position: relative;">
+                    Phương pháp đào tạo
+                    <span style="display: block; width: 80px; height: 4px; background: var(--primary-color); margin: 1rem auto 0;"></span>
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+                    <div style="background: white; border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
+                        <div style="width: 80px; height: 80px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(360deg)'">
+                            <i class="fas fa-chalkboard-teacher" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color); font-size: 1.5rem;">Học tập tương tác</h3>
+                        <p style="color: #666; line-height: 1.6;">Kết hợp giữa lý thuyết và thực hành với các dự án thực tế từ doanh nghiệp</p>
+                        <div style="width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary-color) 70%, #eee 70%); margin-top: 2rem; border-radius: 2px;"></div>
+                    </div>
+                    <div style="background: white; border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
+                        <div style="width: 80px; height: 80px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(360deg)'">
+                            <i class="fas fa-laptop-code" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color); font-size: 1.5rem;">Công nghệ hiện đại</h3>
+                        <p style="color: #666; line-height: 1.6;">Trang bị các công nghệ và phương pháp mới nhất trong ngành</p>
+                        <div style="width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary-color) 85%, #eee 85%); margin-top: 2rem; border-radius: 2px;"></div>
+                    </div>
+                    <div style="background: white; border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'">
+                        <div style="width: 80px; height: 80px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(360deg)'">
+                            <i class="fas fa-users" style="font-size: 2.5rem; color: white;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 1.5rem; color: var(--secondary-color); font-size: 1.5rem;">Kết nối doanh nghiệp</h3>
+                        <p style="color: #666; line-height: 1.6;">Cơ hội thực tập và việc làm tại các doanh nghiệp hàng đầu</p>
+                        <div style="width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary-color) 90%, #eee 90%); margin-top: 2rem; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

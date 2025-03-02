@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diễn đàn - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="chat-widget.js"></script>
+    <style>
+        .info-menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+        .info-menu-item {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .info-menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .info-menu-item i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .info-menu-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .info-sheet {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+        }
+        .info-sheet.active {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .info-menu {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html" class="active">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html">Thông tin liên hệ</a></li>
+                <li><a href="#" class="support-btn"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" style="height: 60vh;">
+            <div class="hero-content">
+                <h1>Groups & Diễn đàn CMC University</h1>
+                <p>Tham gia các nhóm học tập và nghiên cứu của cộng đồng CMC</p>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 5%; background-color: #fff;">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Groups Học Tập</h3>
+                    <p>Các nhóm học tập theo ngành:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Công nghệ thông tin</li>
+                        <li>Quản trị kinh doanh</li>
+                        <li>Marketing số</li>
+                        <li>An toàn thông tin</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Tham gia group</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Groups Hoạt Động</h3>
+                    <p>Các nhóm hoạt động:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>CLB Văn nghệ - Thể thao</li>
+                        <li>Đội tình nguyện</li>
+                        <li>CLB Tiếng Anh</li>
+                        <li>CLB Kỹ năng mềm</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Tham gia hoạt động</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Groups Nghiên Cứu</h3>
+                    <p>Các nhóm nghiên cứu:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>AI & Machine Learning</li>
+                        <li>Blockchain Technology</li>
+                        <li>IoT & Embedded Systems</li>
+                        <li>Data Science</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Tham gia nghiên cứu</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 5%; background-color: #f8f9fa;">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: #2c3e50;">Thông tin Groups</h2>
+            <ul class="info-menu">
+                <li class="info-menu-item" onclick="showInfo('management')">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Quản lý</h3>
+                    <p>Thông tin về quản lý và điều hành groups</p>
+                </li>
+                <li class="info-menu-item" onclick="showInfo('activities')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Hoạt động</h3>
+                    <p>Các hoạt động và sự kiện của groups</p>
+                </li>
+                <li class="info-menu-item" onclick="showInfo('interaction')">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Tương tác</h3>
+                    <p>Cách thức tương tác trong groups</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Info Sheets -->
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="info-sheet" id="management-sheet">
+        <i class="fas fa-times close-btn" onclick="hideInfo()"></i>
+        <h3>Quản lý Groups</h3>
+        <ul>
+            <li>Admin và moderator được chọn lọc kỹ càng</li>
+            <li>Hỗ trợ 24/7 cho các thành viên</li>
+            <li>Quy định group rõ ràng, minh bạch</li>
+            <li>Kiểm duyệt nội dung chặt chẽ</li>
+        </ul>
+    </div>
+
+    <div class="info-sheet" id="activities-sheet">
+        <i class="fas fa-times close-btn" onclick="hideInfo()"></i>
+        <h3>Hoạt động Groups</h3>
+        <ul>
+            <li>Lịch họp định kỳ hàng tuần</li>
+            <li>Sự kiện offline thường xuyên</li>
+            <li>Workshop chuyên môn hàng tháng</li>
+            <li>Các cuộc thi nội bộ</li>
+        </ul>
+    </div>
+
+    <div class="info-sheet" id="interaction-sheet">
+        <i class="fas fa-times close-btn" onclick="hideInfo()"></i>
+        <h3>Tương tác trong Groups</h3>
+        <ul>
+            <li>Thư viện tài liệu phong phú</li>
+            <li>Diễn đàn thảo luận sôi nổi</li>
+            <li>Chia sẻ kinh nghiệm học tập</li>
+            <li>Kết nối doanh nghiệp</li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showInfo(type) {
+            document.querySelectorAll('.info-sheet').forEach(sheet => {
+                sheet.classList.remove('active');
+            });
+            document.getElementById(`${type}-sheet`).classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function hideInfo() {
+            document.querySelectorAll('.info-sheet').forEach(sheet => {
+                sheet.classList.remove('active');
+            });
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        document.getElementById('overlay').addEventListener('click', hideInfo);
+    </script>
+</body>
+</html>

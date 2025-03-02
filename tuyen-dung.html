@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tuyển dụng - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="chat-widget.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #2c3e50;
+            --light-color: #f7f7f7;
+        }
+
+        #hero {
+            background: linear-gradient(rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.8)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3') center/cover;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .feature-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-15px);
+        }
+
+        .feature-card i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .feature-card .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-card .cta-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, var(--light-color) 0%, white 100%);
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .benefit-item i {
+            color: var(--primary-color);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-item h3 {
+            color: var(--dark-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html" class="active">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html">Thông tin liên hệ</a></li>
+                <li><a href="#" class="support-btn"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Khởi Đầu Sự Nghiệp Tại CMC</h1>
+                <p>Nơi tài năng được nuôi dưỡng và phát triển</p>
+            </div>
+        </section>
+
+        <section style="padding: 6rem 5%;">
+            <div class="feature-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div class="feature-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Vị trí giảng viên</h3>
+                    <p>Chúng tôi đang tìm kiếm:</p>
+                    <ul style="text-align: left; margin: 1.5rem 0;">
+                        <li>Giảng viên Công nghệ thông tin</li>
+                        <li>Giảng viên Quản trị kinh doanh</li>
+                        <li>Giảng viên Kỹ thuật số</li>
+                        <li>Giảng viên tiếng Anh</li>
+                    </ul>
+                    <a href="#" class="cta-button">Ứng tuyển ngay</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Vị trí hành chính</h3>
+                    <p>Cơ hội việc làm:</p>
+                    <ul style="text-align: left; margin: 1.5rem 0;">
+                        <li>Chuyên viên tuyển sinh</li>
+                        <li>Chuyên viên đào tạo</li>
+                        <li>Chuyên viên CNTT</li>
+                        <li>Nhân viên thư viện</li>
+                    </ul>
+                    <a href="#" class="cta-button">Ứng tuyển ngay</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Chương trình thực tập</h3>
+                    <p>Dành cho sinh viên:</p>
+                    <ul style="text-align: left; margin: 1.5rem 0;">
+                        <li>Thực tập sinh CNTT</li>
+                        <li>Thực tập sinh Marketing</li>
+                        <li>Thực tập sinh Nghiên cứu</li>
+                        <li>Thực tập sinh Hành chính</li>
+                    </ul>
+                    <a href="#" class="cta-button">Đăng ký ngay</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section" style="padding: 6rem 5%;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem; color: var(--dark-color);">
+                    Quyền lợi nhân viên
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                    <div class="benefit-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Chế độ phúc lợi</h3>
+                        <p>Bảo hiểm sức khỏe toàn diện, nghỉ phép linh hoạt, thưởng các dịp lễ hấp dẫn</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Cơ hội phát triển</h3>
+                        <p>Đào tạo chuyên môn, học bổng nâng cao trình độ và lộ trình thăng tiến rõ ràng</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Môi trường làm việc</h3>
+                        <p>Văn hóa chuyên nghiệp, năng động cùng cơ sở vật chất hiện đại</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

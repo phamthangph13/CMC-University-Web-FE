@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỗ trợ trực tuyến - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-light: #f8f9fa;
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--primary-color);
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .chat-close {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .support-section {
+            padding: 4rem 5%;
+            background: white;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .support-card {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .support-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .chat-window {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html">Thông tin liên hệ</a></li>
+                <li><a href="ho-tro.html" class="support-btn active"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" style="height: 50vh; background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3') center/cover;">
+            <div class="hero-content">
+                <h1>Hỗ trợ trực tuyến</h1>
+                <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
+            </div>
+        </section>
+
+        <section class="support-section">
+            <div class="support-grid">
+                <div class="support-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Chat với trợ lý ảo</h3>
+                    <p>Nhận hỗ trợ tức thì 24/7 từ trợ lý ảo thông minh của chúng tôi</p>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Tổng đài hỗ trợ</h3>
+                    <p>Gọi ngay: (024) 7106 6866<br>Thời gian: 8:00 - 17:30</p>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email hỗ trợ</h3>
+                    <p>Gửi email cho chúng tôi:<br>support@cmcuniversity.edu.vn</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="chat-widget">
+        <div class="chat-button">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <h3><i class="fas fa-robot"></i> CMC Assistant</h3>
+                <span class="chat-close"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Nhập tin nhắn của bạn...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatButton = document.querySelector('.chat-button');
+            const chatWindow = document.querySelector('.chat-window');
+            const chatClose = document.querySelector('.chat-close');
+            const chatInput = document.querySelector('.chat-input input');
+            const chatSend = document.querySelector('.chat-input button');
+            const chatMessages = document.querySelector('.chat-messages');
+
+            // Toggle chat window
+            chatButton.addEventListener('click', () => {
+                chatWindow.classList.add('active');
+                if (!chatMessages.innerHTML) {
+                    addMessage('bot', 'Xin chào! Tôi là trợ lý ảo của CMC University. Tôi có thể giúp gì cho bạn?');
+                }
+            });
+
+            chatClose.addEventListener('click', () => {
+                chatWindow.classList.remove('active');
+            });
+
+            // Send message
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    addMessage('user', message);
+                    chatInput.value = '';
+                    // Simulate bot response
+                    setTimeout(() => {
+                        addMessage('bot', 'Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất có thể!');
+                    }, 1000);
+                }
+            }
+
+            chatSend.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Add message to chat
+            function addMessage(type, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                messageDiv.style.marginBottom = '10px';
+                messageDiv.style.padding = '10px';
+                messageDiv.style.borderRadius = '10px';
+                messageDiv.style.maxWidth = '80%';
+                messageDiv.style.alignSelf = type === 'user' ? 'flex-end' : 'flex-start';
+                messageDiv.style.background = type === 'user' ? '#4a90e2' : '#f1f1f1';
+                messageDiv.style.color = type === 'user' ? 'white' : 'black';
+
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

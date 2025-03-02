@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nghiên cứu khoa học - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="chat-widget.js"></script>
+    <style>
+        .news-banner {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 4rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-4.0.3') center/cover;
+            opacity: 0.1;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 0.1; }
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured-article {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-article img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-article {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-article:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #2980b9;
+        }
+
+        .research-highlights {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-item i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item h4 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .recent-news li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-news li:last-child {
+            border-bottom: none;
+        }
+
+        .date {
+            display: block;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .research-areas li {
+            margin-bottom: 0.5rem;
+        }
+
+        .research-areas a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .research-areas a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 992px) {
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-article img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html" class="active">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html">Thông tin liên hệ</a></li>
+                <li><a href="#" class="support-btn"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="news-banner">
+            <div class="banner-content">
+                <h1>Nghiên cứu khoa học</h1>
+                <p>Đổi mới sáng tạo và phát triển tri thức</p>
+            </div>
+        </section>
+
+        <div class="news-container">
+            <div class="main-content">
+                <article class="featured-article">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3" alt="Nghiên cứu AI">
+                    <div class="article-content">
+                        <h2>Đột phá mới trong nghiên cứu Trí tuệ nhân tạo tại CMC University</h2>
+                        <p class="article-meta">Đăng ngày: 15/03/2024 | Tác giả: TS. Nguyễn Văn A</p>
+                        <p>Nhóm nghiên cứu AI của CMC University vừa công bố kết quả đột phá về mô hình học sâu mới...</p>
+                        <a href="#" class="read-more">Đọc tiếp →</a>
+                    </div>
+                </article>
+
+                <div class="article-grid">
+                    <article class="news-article">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGwJvfULAalWMKnBVwlpyb4TdlmpvCvKQUqw&s" alt="Phòng thí nghiệm">
+                        <div class="article-content">
+                            <h3>Khai trương Phòng Lab AI hiện đại</h3>
+                            <p class="article-meta">10/03/2024</p>
+                            <p>CMC University đầu tư 20 tỷ đồng xây dựng phòng Lab AI theo tiêu chuẩn quốc tế...</p>
+                            <a href="#" class="read-more">Xem thêm</a>
+                        </div>
+                    </article>
+
+                    <article class="news-article">
+                        <img src="https://content.arborxr.com/2023/06/stanford-university-customer-story-arborxr-blog-hero.jpg" alt="Hợp tác quốc tế">
+                        <div class="article-content">
+                            <h3>Hợp tác nghiên cứu với ĐH Stanford</h3>
+                            <p class="article-meta">05/03/2024</p>
+                            <p>Ký kết thỏa thuận hợp tác nghiên cứu trong lĩnh vực Khoa học dữ liệu...</p>
+                            <a href="#" class="read-more">Xem thêm</a>
+                        </div>
+                    </article>
+                </div>
+
+                <section class="research-highlights">
+                    <h2>Thành tựu nổi bật</h2>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <h4>15+</h4>
+                            <p>Công bố quốc tế ISI/Scopus</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-certificate"></i>
+                            <h4>8</h4>
+                            <p>Bằng sáng chế</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-trophy"></i>
+                            <h4>12</h4>
+                            <p>Giải thưởng nghiên cứu</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Tin mới nhất</h3>
+                    <ul class="recent-news">
+                        <li>
+                            <a href="#">Hội thảo Khoa học Quốc tế 2024</a>
+                            <span class="date">20/03/2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Tuyển sinh nghiên cứu sinh khóa 2024</a>
+                            <span class="date">18/03/2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Quỹ nghiên cứu khoa học sinh viên</a>
+                            <span class="date">15/03/2024</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Lĩnh vực nghiên cứu</h3>
+                    <ul class="research-areas">
+                        <li><a href="#">Trí tuệ nhân tạo</a></li>
+                        <li><a href="#">An toàn thông tin</a></li>
+                        <li><a href="#">Internet vạn vật</a></li>
+                        <li><a href="#">Khoa học dữ liệu</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

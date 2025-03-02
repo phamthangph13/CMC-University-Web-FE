@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin liên hệ - CMC University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="chat-widget.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-light: #f8f9fa;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3') center/cover;
+            position: relative;
+            overflow: hidden;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background: #357abd;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Icon-Dai-hoc-CMC.png" alt="CMC University Logo">
+                <span>CMC University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="dao-tao.html">Chương trình đào tạo</a></li>
+                <li><a href="tuyen-dung.html">Thông tin tuyển dụng</a></li>
+                <li><a href="dien-dan.html">Diễn đàn</a></li>
+                <li><a href="nghien-cuu.html">Nghiên cứu khoa học</a></li>
+                <li><a href="lien-he.html" class="active">Thông tin liên hệ</a></li>
+                <li><a href="#" class="support-btn"><i class="fas fa-headset"></i> Hỗ trợ trực tuyến</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" style="height: 60vh;">
+            <div class="hero-content">
+                <h1>Thông tin liên hệ</h1>
+                <p>Kết nối với CMC University</p>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 5%; background-color: #fff;">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Địa chỉ</h3>
+                    <p>Trụ sở chính:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</li>
+                        <li>Cơ sở 2: 123 Đường ABC, Quận XYZ, Hà Nội</li>
+                        <li>Cơ sở 3: 456 Đường DEF, Quận UVW, Hà Nội</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Xem bản đồ</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Điện thoại</h3>
+                    <p>Các bộ phận:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Tổng đài: (024) 7106 6866</li>
+                        <li>Phòng Đào tạo: (024) 7106 6867</li>
+                        <li>Phòng Tuyển sinh: (024) 7106 6868</li>
+                        <li>Phòng Hành chính: (024) 7106 6869</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Gọi ngay</a>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>Liên hệ qua email:</p>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Chung: info@cmcuniversity.edu.vn</li>
+                        <li>Tuyển sinh: tuyensinh@cmcuniversity.edu.vn</li>
+                        <li>Đào tạo: daotao@cmcuniversity.edu.vn</li>
+                        <li>Hợp tác: hoptac@cmcuniversity.edu.vn</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 1rem;">Gửi email</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 5rem 5%; background-color: #f8f9fa;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 3rem; color: #2c3e50;">Gửi tin nhắn cho chúng tôi</h2>
+                <form style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-group">
+                        <label for="name" style="display: block; margin-bottom: 0.5rem;">Họ và tên</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" style="display: block; margin-bottom: 0.5rem;">Chủ đề</label>
+                        <input type="text" id="subject" name="subject" class="form-control" required placeholder="Nhập chủ đề">
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="message" style="display: block; margin-bottom: 0.5rem;">Nội dung</label>
+                        <textarea id="message" name="message" rows="5" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Gửi tin nhắn</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <p>Email: info@cmcuniversity.edu.vn</p>
+                <p>Điện thoại: (024) 7106 6866</p>
+                <p>Địa chỉ: Tòa nhà CMC, Duy Tân, Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="tuyen-sinh.html">Tuyển sinh</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo dõi chúng tôi</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CMC University. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
